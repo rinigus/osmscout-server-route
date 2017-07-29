@@ -22,6 +22,7 @@ License:    MIT
 URL:        https://github.com/rinigus/osmscout-server
 Source0:    %{name}-%{version}.tar.bz2
 Source100:  harbour-osmscout-server-module-route.yaml
+Source101:  harbour-osmscout-server-module-route-rpmlintrc
 Requires:   sailfishsilica-qt5 >= 0.10.9
 BuildRequires:  pkgconfig(sailfishapp) >= 1.0.2
 BuildRequires:  pkgconfig(Qt5Core)
@@ -99,10 +100,6 @@ strip %{buildroot}%{_datadir}/%{name}/lib/libicudata.so.52
 
 # strip executable bit from all libraries
 chmod -x %{buildroot}%{_datadir}/%{name}/lib/*.so*
-
-%post -p /sbin/ldconfig
-
-%postun -p /sbin/ldconfig
 
 ################################
 # << install post
