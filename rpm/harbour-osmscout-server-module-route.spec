@@ -18,7 +18,7 @@ Summary:    OSM Scout Server Module Route
 Version:    2.2.8
 Release:    1
 Group:      Qt/Qt
-License:    MIT
+License:    LGPL3
 URL:        https://github.com/rinigus/osmscout-server
 Source0:    %{name}-%{version}.tar.bz2
 Source100:  harbour-osmscout-server-module-route.yaml
