@@ -100,6 +100,10 @@ strip %{buildroot}%{_datadir}/%{name}/lib/libicudata.so.52
 # strip executable bit from all libraries
 chmod -x %{buildroot}%{_datadir}/%{name}/lib/*.so*
 
+%post -p /sbin/ldconfig
+
+%postun -p /sbin/ldconfig
+
 ################################
 # << install post
 
