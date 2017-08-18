@@ -28,7 +28,6 @@ namespace valhalla {
   namespace loki { extern void run_service(const boost::property_tree::ptree& config); }
   namespace thor { extern void run_service(const boost::property_tree::ptree& config); }
   namespace odin { extern void run_service(const boost::property_tree::ptree& config); }
-  namespace tyr { extern void run_service(const boost::property_tree::ptree& config); }
 }
 
 int valhalla_route_service_main(int argc, char** argv) {
@@ -51,7 +50,6 @@ int valhalla_route_service_main(int argc, char** argv) {
   std::string loki_proxy = config.get<std::string>("loki.service.proxy");
   std::string thor_proxy = config.get<std::string>("thor.service.proxy");
   std::string odin_proxy = config.get<std::string>("odin.service.proxy");
-  std::string tyr_proxy = config.get<std::string>("tyr.service.proxy");
   //TODO: add multipoint accumulator worker
 
   //check the server endpoint
@@ -109,15 +107,6 @@ int valhalla_route_service_main(int argc, char** argv) {
   for(size_t i = 0; i < worker_concurrency; ++i) {
     odin_worker_threads.emplace_back(valhalla::odin::run_service, config);
     odin_worker_threads.back().detach();
-  }
-
-  //tyr layer
-  std::thread tyr_proxy_thread(std::bind(&proxy_t::forward, proxy_t(context, tyr_proxy + "_in", tyr_proxy + "_out")));
-  tyr_proxy_thread.detach();
-  std::list<std::thread> tyr_worker_threads;
-  for(size_t i = 0; i < worker_concurrency; ++i) {
-    tyr_worker_threads.emplace_back(valhalla::tyr::run_service, config);
-    tyr_worker_threads.back().detach();
   }
 
   //TODO: add multipoint accumulator
