@@ -48,7 +48,11 @@
       "mode",
       "search_radius",
       "turn_penalty_factor",
-      "gps_accuracy"
+      "gps_accuracy",
+      "sigma_z",
+      "beta",
+      "max_route_distance_factor",
+      "max_route_time_factor"
     ],
     "default": {
       "beta": 3,
@@ -57,6 +61,8 @@
       "gps_accuracy": 5.0,
       "interpolation_distance": 10,
       "max_route_distance_factor": 5,
+      "max_route_time_factor": 5,
+      "max_search_radius": 100,
       "route": true,
       "search_radius": 50,
       "sigma_z": 4.07,
@@ -166,9 +172,11 @@
       "min_resample": 10.0
     },
     "trace": {
+      "max_best_paths": 4,
+      "max_best_paths_shape": 100,
       "max_distance": 200000.0,
       "max_gps_accuracy": 100.0,
-      "max_search_radius": 100,
+      "max_search_radius": 100.0,
       "max_shape": 16000
     },
     "transit": {
