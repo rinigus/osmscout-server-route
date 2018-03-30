@@ -13,14 +13,13 @@
     "actions": [
       "locate",
       "route",
-      "one_to_many",
-      "many_to_one",
-      "many_to_many",
+      "height",
       "sources_to_targets",
       "optimized_route",
       "isochrone",
       "trace_route",
-      "trace_attributes"
+      "trace_attributes",
+      "transit_available"
     ],
     "logging": {
       "color": false,
@@ -34,7 +33,8 @@
     "service_defaults": {
       "minimum_reachability": 50,
       "radius": 0
-    }
+    },
+    "use_connectivity": true
   },
   "meili": {
     "auto": {
@@ -92,12 +92,15 @@
   },
   "mjolnir": {
     "admin": "/data/valhalla/admin.sqlite",
+    "hierarchy": true,
+    "include_driveways": true,
     "logging": {
       "color": false,
       "file_name": "path_to_some_file.log",
       "type": "std_out"
     },
     "max_cache_size": MAXIMAL_CACHE_SIZE,
+    "shortcuts": true,
     "tile_dir": "VALHALLA_TILE_DIRECTORY",
     "tile_extract": "/data/valhalla/tiles.tar",
     "timezone": "/data/valhalla/tz_world.sqlite",
@@ -121,7 +124,7 @@
       "max_matrix_locations": 50
     },
     "auto_shorter": {
-      "max_distance": 5000000.0,
+      "max_distance": LIMIT_MAX_DISTANCE_AUTO,
       "max_locations": 20,
       "max_matrix_distance": 400000.0,
       "max_matrix_locations": 50
@@ -153,6 +156,12 @@
     "max_avoid_locations": 50,
     "max_radius": 200,
     "max_reachability": 100,
+    "motor_scooter": {
+      "max_distance": 500000.0,
+      "max_locations": 50,
+      "max_matrix_distance": 200000.0,
+      "max_matrix_locations": 50
+    },
     "multimodal": {
       "max_distance": 500000.0,
       "max_locations": 50,
@@ -190,20 +199,6 @@
       "max_locations": 20,
       "max_matrix_distance": 400000.0,
       "max_matrix_locations": 50
-    }
-  },
-  "skadi": {
-    "actions": [
-      "height"
-    ],
-    "logging": {
-      "color": false,
-      "file_name": "path_to_some_file.log",
-      "long_request": 5.0,
-      "type": "std_out"
-    },
-    "service": {
-      "proxy": "ipc:///tmp/osmscout_server_valhalla_skadi"
     }
   },
   "thor": {

@@ -15,7 +15,7 @@ Name:       harbour-osmscout-server-module-route
 %{!?qtc_make:%define qtc_make make}
 %{?qtc_builddir:%define _builddir %qtc_builddir}
 Summary:    OSM Scout Server Module Route
-Version:    2.3.6
+Version:    2.4.8
 Release:    1
 Group:      Qt/Qt
 License:    LGPL3
@@ -32,8 +32,8 @@ BuildRequires:  libzmq-devel >= 4.1.4
 BuildRequires:  czmq-devel >= 3.0
 BuildRequires:  protobuf-devel
 BuildRequires:  prime_server-devel == 0.6.3
-BuildRequires:  valhalla == 2.3.6
-BuildRequires:  valhalla-devel == 2.3.6
+BuildRequires:  valhalla == 2.4.8
+BuildRequires:  valhalla-devel == 2.4.8
 BuildRequires:  boost-devel >= 1.51
 BuildRequires:  boost-chrono >= 1.51
 BuildRequires:  boost-date-time >= 1.51
@@ -43,6 +43,8 @@ BuildRequires:  boost-program-options >= 1.51
 BuildRequires:  boost-regex >= 1.51
 BuildRequires:  boost-system >= 1.51
 BuildRequires:  boost-thread >= 1.51
+BuildRequires:  lz4-devel
+BuildRequires:  zlib-devel
 BuildRequires:  desktop-file-utils
 
 %description
@@ -95,6 +97,9 @@ cp /usr/lib/libprotobuf.so.8  %{buildroot}%{_datadir}/%{name}/lib
 cp /usr/lib/libicui18n.so.52 %{buildroot}%{_datadir}/%{name}/lib
 cp /usr/lib/libicudata.so.52 %{buildroot}%{_datadir}/%{name}/lib
 cp /usr/lib/libicuuc.so.52 %{buildroot}%{_datadir}/%{name}/lib
+
+cp /usr/lib/liblz4.so.1.8.1 %{buildroot}%{_datadir}/%{name}/lib
+cp /usr/lib/libz.so.1.2.8 %{buildroot}%{_datadir}/%{name}/lib
 
 strip %{buildroot}%{_datadir}/%{name}/lib/libicudata.so.52
 
