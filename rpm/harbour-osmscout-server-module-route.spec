@@ -45,6 +45,7 @@ BuildRequires:  boost-system >= 1.51
 BuildRequires:  boost-thread >= 1.51
 BuildRequires:  lz4-devel
 BuildRequires:  zlib-devel
+BuildRequires:  libcurl-devel
 BuildRequires:  desktop-file-utils
 
 %description
@@ -100,6 +101,7 @@ cp /usr/lib/libicuuc.so.52 %{buildroot}%{_datadir}/%{name}/lib
 
 cp /usr/lib/liblz4.so.1.8.1 %{buildroot}%{_datadir}/%{name}/lib
 cp /usr/lib/libz.so.1.2.8 %{buildroot}%{_datadir}/%{name}/lib
+cp /usr/lib/libcurl.so.4.4.0 %{buildroot}%{_datadir}/%{name}/lib
 
 strip %{buildroot}%{_datadir}/%{name}/lib/libicudata.so.52
 

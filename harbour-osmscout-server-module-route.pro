@@ -33,7 +33,7 @@ OTHER_FILES += qml/harbour-osmscout-server-module-route.qml \
     translations/*.ts \
     harbour-osmscout-server-module-route.desktop
 
-LIBS += -l:libvalhalla.a -lprime_server -lczmq -lzmq -lprotobuf -llz4 -lz
+LIBS += -l:libvalhalla.a -lprime_server -lczmq -lzmq -lprotobuf -llz4 -lz -lcurl
 LIBS += -lboost_thread-mt -lboost_program_options-mt -lboost_regex-mt -lboost_filesystem-mt -lboost_system-mt -lboost_iostreams-mt
 
 SAILFISHAPP_ICONS = 86x86 108x108 128x128 256x256

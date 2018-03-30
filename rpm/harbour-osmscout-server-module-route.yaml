@@ -47,6 +47,7 @@ PkgBR:
   - boost-thread >= 1.51
   - lz4-devel
   - zlib-devel
+  - libcurl-devel
 
 # Runtime dependencies which are not automatically detected
 Requires:
