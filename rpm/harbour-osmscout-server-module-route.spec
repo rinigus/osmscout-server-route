@@ -7,7 +7,7 @@ Name:       harbour-osmscout-server-module-route
 
 # >> macros
 %define __provides_exclude_from ^%{_datadir}/.*$
-%define __requires_exclude ^libboost_|libicudata|libicui18n|libicuuc|libprime_server|libzmq|libczmq|libprotobuf|libcurl|libz|liblz4.*$
+%define __requires_exclude ^libboost_|libicudata|libicui18n|libicuuc|libprime_server|libzmq|libczmq|libprotobuf|libz|liblz4.*$
 # << macros
 
 %{!?qtc_qmake:%define qtc_qmake %qmake}
@@ -103,8 +103,6 @@ cp /usr/lib/liblz4.so.1.8.1 %{buildroot}%{_datadir}/%{name}/lib
 cp /usr/lib/liblz4.so.1 %{buildroot}%{_datadir}/%{name}/lib
 cp /usr/lib/libz.so.1.2.8 %{buildroot}%{_datadir}/%{name}/lib
 cp /usr/lib/libz.so.1 %{buildroot}%{_datadir}/%{name}/lib
-cp /usr/lib/libcurl.so.4.4.0 %{buildroot}%{_datadir}/%{name}/lib
-cp /usr/lib/libcurl.so.4 %{buildroot}%{_datadir}/%{name}/lib
 
 strip %{buildroot}%{_datadir}/%{name}/lib/libicudata.so.52
 
